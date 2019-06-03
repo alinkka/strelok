@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+	<div style="background-image: url(west.jpg); height: 1000px; width: 100%; background-size: 100% 100%" class="west">
+
+		<h1 class="score ml-5">0</h1>
+		<button class="btn btn-dark" style="position: absolute;margin-left: 50%;opacity: 0; display: none;" href="strelok.html">restart</button>
+		<div class="main">
+			<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 20%; margin-top: 19%; ">
+			<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 60%; margin-top: 16%; ">
+			<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 70%; margin-top: 20%; ">
+			<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 10%; margin-top: 12%; ">
+			<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 40%; margin-top: 13%; ">
+			<img class="enemy1" src="shooter.png" alt="" style="position: absolute; width: 6%; margin-left: 80%; margin-top: 8%; ">
+
+			<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 10%; margin-top: 30%; ">
+			<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 40%; margin-top: 30%; ">
+			<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 60%; margin-top: 30%; ">
+			<img class="enemy2" src="cowboy.png" alt="" style="position: absolute; width: 5%; margin-left: 30%; margin-top: 24%; ">
+		
+			<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 0%; margin-top: 20%; ">
+			<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 25%; margin-top: 10%; ">
+			<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 50%; margin-top: 24%; ">
+			<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 70%; margin-top: 35%; ">
+			<img class="enemy3" src="cowboy2.png" alt="" style="position: absolute; width: 10%; margin-left: 90%; margin-top: 20%; ">
+		</div>
+
+	</div>
+<script type="text/javascript">
+	let img1=document.querySelectorAll(".enemy1");
+	let img2=document.querySelectorAll(".enemy2");
+	let img3=document.querySelectorAll(".enemy3");
+	let score=0;
+	let o4ki=document.querySelector(".score");
+	let proverka=function() {//создание функции
+		if (score>=100) {
+			alert("u win");
+			document.querySelector(".west").style.backgroundImage = "url(winner.jpg)";
+			document.querySelector(".west").style.backgroundSize = "100% 100%";
+			document.querySelector(".west").style.transition = "2s";
+
+		} else {
+			alert("u lose")
+			document.querySelector(".west").style.backgroundImage = "url(loser.png)";
+			document.querySelector(".west").style.backgroundSize = "100% 100%";
+			document.querySelector(".west").style.transition = "2s";
+
+		}
+		document.querySelector(".main").style.opacity = "0";
+		document.querySelector(".main").style.transition = "2s";
+		document.querySelector(".btn").style.display = "block";
+
+	}
+	setTimeout(proverka,8000) //таймер
+
+	for(let index = 0; index<6; index = index + 1){//цикл
+		img1[index].onclick=function(){
+		img1[index].style.opacity = "0";
+		img1[index].style.transition = "1s";
+		func(10);
+		}
+	}
+	for(let index = 0; index<4; index = index + 1){//цикл
+		img2[index].onclick=function(){
+		img2[index].style.opacity = "0";
+		img2[index].style.transition = "1s";
+		func(20);
+		}
+	}
+	for(let index = 0; index<5; index = index + 1){//цикл
+		img3[index].onclick=function(){
+		img3[index].style.opacity = "0";
+		img3[index].style.transition = "1s";
+		func(30);
+		}
+	}
+	let func = function(arg) { //функция с аргументом
+		score=score+30;
+		o4ki.innerHTML=score;
+
+	}
+
+
+
+</script>
+</body>
+</html>
